@@ -1,0 +1,136 @@
+DBMS – Strategic Coaching Assignment (Premium)
+
+  --------------------------------------------------
+  Q1. Evaluate ANSI-SPARC Architecture
+  --------------------------------------------------
+  The ANSI-SPARC architecture is a three-level
+  database architecture:
+
+  1. External Level: - Provides different views to
+  users - Ensures data security and customization
+
+  2. Conceptual Level: - Represents overall logical
+  structure - Defines entities, relationships,
+  constraints
+
+  3. Internal Level: - Describes physical storage of
+  data - Includes indexing and file organization
+
+  Data Independence: - Logical Data Independence:
+  Change in conceptual schema does not affect user
+  views - Physical Data Independence: Change in
+  storage does not affect logical schema
+
+  Conclusion: This architecture ensures flexibility,
+  scalability, and easy maintenance.
+  --------------------------------------------------
+
+Q2. Analyze Mapping Cardinalities
+
+Mapping cardinality defines relationships between entities:
+
+1.  One-to-One (1:1) Example: Person – Passport Impact: Can merge tables
+
+2.  One-to-Many (1:M) Example: Customer – Orders Impact: Foreign key in
+    many-side table
+
+3.  Many-to-One (M:1) Reverse of 1:M
+
+4.  Many-to-Many (M:N) Example: Students – Courses Impact: Requires
+    junction table
+
+Conclusion: Cardinality affects table structure, keys, and database
+efficiency.
+
+  -----------------------
+  Q3. SQL – HOTEL TABLE
+  -----------------------
+
+Step 1: Create Table
+
+CREATE TABLE Hotel ( Hotel_ID VARCHAR2(5) PRIMARY KEY, Name VARCHAR2(50)
+NOT NULL, Location VARCHAR2(50) NOT NULL, Rating NUMBER(1) CHECK (Rating
+BETWEEN 1 AND 5), Contact_No VARCHAR2(10) UNIQUE, Email VARCHAR2(50)
+UNIQUE, Total_Rooms NUMBER(5) CHECK (Total_Rooms > 0), Manager_Name
+VARCHAR2(50) NOT NULL );
+
+  ------------------------
+  Step 2: Insert Records
+  ------------------------
+
+INSERT INTO Hotel VALUES (‘H101’,‘Royal
+Inn’,‘Rajkot’,5,‘9876543210’,‘royal@gmail.com’,120,‘Amit’); INSERT INTO
+Hotel VALUES (‘H102’,‘Sea
+View’,‘Diu’,4,‘9876500000’,‘sea@gmail.com’,80,‘Rahul’); INSERT INTO
+Hotel VALUES (‘H103’,‘City
+Palace’,‘Surat’,3,‘9999999999’,‘city@gmail.com’,150,‘Kiran’); INSERT
+INTO Hotel VALUES (‘H104’,‘River
+View’,‘Bhavnagar’,4,‘8888888888’,‘river@gmail.com’,110,‘Suresh’); INSERT
+INTO Hotel VALUES
+(‘H105’,‘Ramada’,‘Rajkot’,5,‘7777777777’,‘ramada@gmail.com’,200,‘Ravi’);
+
+  ------------------------
+  Step 3: SQL Operations
+  ------------------------
+
+1.  Add a column total_rooms ALTER TABLE Hotel ADD total_rooms
+    NUMBER(5);
+
+2.  Add a column website ALTER TABLE Hotel ADD website VARCHAR2(50);
+
+3.  Display all records SELECT * FROM Hotel;
+
+4.  Increase size of Name ALTER TABLE Hotel MODIFY Name VARCHAR2(80);
+
+5.  Change datatype of Contact_No ALTER TABLE Hotel MODIFY Contact_No
+    VARCHAR2(15);
+
+6.  Display where location is Diu SELECT * FROM Hotel WHERE
+    Location=‘Diu’;
+
+7.  Display name, location, total rooms where rating is 4 or 5 SELECT
+    Name, Location, Total_Rooms FROM Hotel WHERE Rating IN (4,5);
+
+8.  Display where location is Rajkot, Bhavnagar, Surat SELECT * FROM
+    Hotel WHERE Location IN (‘Rajkot’,‘Bhavnagar’,‘Surat’);
+
+9.  Display where rating above 3 SELECT * FROM Hotel WHERE Rating > 3;
+
+10. Display where manager_name is NULL SELECT * FROM Hotel WHERE
+    Manager_Name IS NULL;
+
+11. Display where hotel name begins with ‘R’ SELECT * FROM Hotel WHERE
+    Name LIKE ‘R%’;
+
+12. Display where rating below 4 and rooms above 100 SELECT * FROM Hotel
+    WHERE Rating < 4 AND Total_Rooms > 100;
+
+13. Display all and arrange by rating SELECT * FROM Hotel ORDER BY
+    Rating;
+
+14. Display manager name where second letter is ‘e’ SELECT Manager_Name
+    FROM Hotel WHERE Name LIKE ’_e%’;
+
+15. Add column State with default ‘Gujarat’ ALTER TABLE Hotel ADD State
+    VARCHAR2(20) DEFAULT ‘Gujarat’;
+
+16. Rename Manager_Name to MGR ALTER TABLE Hotel RENAME COLUMN
+    Manager_Name TO MGR;
+
+17. Rename Name to Hotel_Name ALTER TABLE Hotel RENAME COLUMN Name TO
+    Hotel_Name;
+
+18. Rename Contact_No to Phone_No ALTER TABLE Hotel RENAME COLUMN
+    Contact_No TO Phone_No;
+
+19. Rename Rating to Hotel_Rating ALTER TABLE Hotel RENAME COLUMN Rating
+    TO Hotel_Rating;
+
+20. Add GST_No column ALTER TABLE Hotel ADD GST_No VARCHAR2(15) UNIQUE;
+
+21. Rename Email to Hotel_Email ALTER TABLE Hotel RENAME COLUMN Email TO
+    Hotel_Email;
+
+  -------------------
+  END OF ASSIGNMENT
+  -------------------
